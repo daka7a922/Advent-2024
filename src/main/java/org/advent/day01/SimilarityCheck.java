@@ -36,7 +36,7 @@ public class SimilarityCheck {
             int element = left.get(i);
             for (int j = 0; j < right.size(); j++) {
                 int element2 = right.get(j);
-                if (element == right.get(j)) {
+                if (element == element2) {
                     counter++;
                 }
             }

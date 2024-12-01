@@ -1,6 +1,7 @@
 package org.advent.day01;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,20 +10,16 @@ import java.util.List;
 
 public class LocationIdDistance {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         List<Integer> leftList = new ArrayList<>();
         List<Integer> rightList = new ArrayList<>();
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/org/advent/day01/input.txt"))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.trim().split("\\s+");
-                leftList.add(Integer.parseInt(parts[0]));
-                rightList.add(Integer.parseInt(parts[1]));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return;
+        BufferedReader reader = new BufferedReader(new FileReader("src/main/java/org/advent/day01/input.txt"));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] parts = line.trim().split("\\s+");
+            leftList.add(Integer.parseInt(parts[0]));
+            rightList.add(Integer.parseInt(parts[1]));
         }
 
         long totalDistance = calculateTotalDistance(leftList, rightList);
