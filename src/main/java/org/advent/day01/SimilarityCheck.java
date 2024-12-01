@@ -41,7 +41,7 @@ public class SimilarityCheck {
                 }
             }
 
-            similarityScore += counter * element;
+            similarityScore += (long) counter * element;
             totalSimilarityScore += similarityScore;
             counter = 0;
 
